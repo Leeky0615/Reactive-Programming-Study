@@ -1,4 +1,4 @@
-package practice.chaptor02;
+package practice.chapter02;
 
 import io.reactivex.rxjava3.core.Observable;
 

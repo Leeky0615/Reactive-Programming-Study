@@ -1,4 +1,4 @@
-package practice.chatpor03;
+package practice.chatper03;
 
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -11,11 +11,11 @@ import java.util.concurrent.TimeUnit;
 /**
  *
  */
-public class BackpressureDropExample {
+public class BackpressureLatestExample {
     public static void main(String[] args) {
         Flowable.interval(300L, TimeUnit.MILLISECONDS)
                 .doOnNext(data -> Logger.log("# interval doOnNext()", data))
-                .onBackpressureDrop(dropData -> Logger.log(LogType.PRINT, dropData + " Drop!"))
+                .onBackpressureLatest()
                 .observeOn(Schedulers.computation(), false, 1) // 데이터 요청 수
                 .subscribe(
                         data -> {

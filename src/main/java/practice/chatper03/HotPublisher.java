@@ -1,6 +1,5 @@
-package practice.chatpor03;
+package practice.chatper03;
 
-import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.processors.PublishProcessor;
 
 public class HotPublisher {
