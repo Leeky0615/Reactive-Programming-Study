@@ -1,4 +1,4 @@
-package practice.chatper03;
+package practice.chapter03;
 
 import io.reactivex.rxjava3.processors.PublishProcessor;
 

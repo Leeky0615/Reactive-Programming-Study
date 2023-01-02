@@ -1,4 +1,4 @@
-package practice.chatper03;
+package practice.chapter03;
 
 import io.reactivex.rxjava3.core.BackpressureOverflowStrategy;
 import io.reactivex.rxjava3.core.Flowable;
@@ -17,7 +17,7 @@ import static practice.utils.LogType.ON_ERROR;
  * onBackpressureBuffer()를 사용해 Drop_LATEST 전략 설정 -> capacity(버퍼 안에 데이터가 들어올 수 있는 개수)
  * observeOn()에서 소비자쪽에서 데이터를 처리하는 쓰레드를 별도로 설정 -> bufferSize(소비자 쪽에서 요청하는 데이터의 개수)
  */
-public class BackpressureBufferExample02 {
+public class BackpressureBufferExample01 {
     public static void main(String[] args) {
         System.out.println("# 시작 : " + TimeUtil.getCurrentTimeFormatted());
         Flowable.interval(300L, TimeUnit.MILLISECONDS)
@@ -25,7 +25,7 @@ public class BackpressureBufferExample02 {
                 .onBackpressureBuffer(
                         2,
                         () -> Logger.log("overflow!!"),
-                        BackpressureOverflowStrategy.DROP_OLDEST)
+                        BackpressureOverflowStrategy.DROP_LATEST)
                 .doOnNext(data -> Logger.log("# onBackpressureBuffer doOnNext()", data))
                 .observeOn(Schedulers.computation(), false, 1)
                 .subscribe(
