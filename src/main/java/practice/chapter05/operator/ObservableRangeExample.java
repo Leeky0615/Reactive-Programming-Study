@@ -1,4 +1,4 @@
-package practice.chapter05;
+package practice.chapter05.operator;
 
 import io.reactivex.rxjava3.core.Observable;
 import practice.utils.LogType;
