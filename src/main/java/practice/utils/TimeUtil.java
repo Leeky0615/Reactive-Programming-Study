@@ -26,6 +26,7 @@ public class TimeUtil {
     public static long getCurrentTime(){
         return System.currentTimeMillis();
     }
+
     public static void sleep(long interval){
         try {
             Thread.sleep(interval);
