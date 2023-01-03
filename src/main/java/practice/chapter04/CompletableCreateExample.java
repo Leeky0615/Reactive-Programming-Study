@@ -7,15 +7,16 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import practice.utils.DateUtil;
 import practice.utils.LogType;
 import practice.utils.Logger;
+import practice.utils.TimeUtil;
 
 public class CompletableCreateExample {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         completableCreate();
 //        completableCreateByLambda();
 //        completableJust();
     }
 
-    private static void completableCreate() throws InterruptedException {
+    private static void completableCreate(){
         System.out.println("-----completable create-----");
         Completable completable = Completable.create(new CompletableOnSubscribe() {
             @Override
@@ -48,10 +49,10 @@ public class CompletableCreateExample {
                     }
                 });
 
-        Thread.sleep(100L);
+        TimeUtil.sleep(100L);
     }
 
-    private static void completableCreateByLambda() throws InterruptedException {
+    private static void completableCreateByLambda(){
         System.out.println("-----completable create by lambda-----");
         Completable completable = Completable.create(emitter -> {
             // 데이터를 통지하는 것이 아니라 특정 작업을 수행한 후, 완료를 통지
@@ -69,6 +70,6 @@ public class CompletableCreateExample {
                         error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
-        Thread.sleep(100L);
+        TimeUtil.sleep(100L);
     }
 }

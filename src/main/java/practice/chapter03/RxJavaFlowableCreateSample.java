@@ -12,7 +12,7 @@ import practice.utils.LogType;
 import practice.utils.Logger;
 
 public class RxJavaFlowableCreateSample {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         // 데이터를 통지하는 부분
         Flowable<String> flowable =
                 Flowable.create(new FlowableOnSubscribe<String>() {
@@ -67,7 +67,7 @@ public class RxJavaFlowableCreateSample {
                             }
                         }
                 );
-        Thread.sleep(500L);
+        TimeUtil.sleep(500L);
     }
 
 

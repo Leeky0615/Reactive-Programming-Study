@@ -3,6 +3,7 @@ package practice.chapter05.operator;
 import io.reactivex.rxjava3.core.Observable;
 import practice.utils.LogType;
 import practice.utils.Logger;
+import practice.utils.TimeUtil;
 
 import java.time.LocalTime;
 
@@ -11,7 +12,7 @@ import java.time.LocalTime;
  * defer()의 경우 구독 1, 2의 시간이 지연시간만큼 차이난다. 즉, defer()로 생성한 Observable로 구독을 한 시점의 시간을 출력한다.
  */
 public class ObservableDeferExample {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         Observable<LocalTime> defer = Observable.defer(() -> {
             LocalTime now = LocalTime.now();
             return Observable.just(now);
@@ -22,7 +23,7 @@ public class ObservableDeferExample {
         defer.subscribe(time -> Logger.log(LogType.PRINT, "# defer() 구독1의 구독시간: " + time));
         just.subscribe(time -> Logger.log(LogType.PRINT, "# just() 구독1의 구독시간: " + time));
 
-        Thread.sleep(3000);
+        TimeUtil.sleep(3000);
 
         defer.subscribe(time -> Logger.log(LogType.PRINT, "# defer() 구독2의 구독시간: " + time));
         just.subscribe(time -> Logger.log(LogType.PRINT, "# just() 구독2의 구독시간: " + time));

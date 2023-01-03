@@ -6,9 +6,10 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import practice.utils.LogType;
 import practice.utils.Logger;
+import practice.utils.TimeUtil;
 
 public class RxJavaObservableCreateSample {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         // 데이터를 통지하는 부분
         Observable<String> observable =
                 Observable.create(new ObservableOnSubscribe<String>() {
@@ -51,6 +52,6 @@ public class RxJavaObservableCreateSample {
                     }
                 });
 
-        Thread.sleep(500L);
+        TimeUtil.sleep(500L);
     }
 }

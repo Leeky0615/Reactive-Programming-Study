@@ -9,7 +9,7 @@ import practice.utils.TimeUtil;
 import java.util.concurrent.TimeUnit;
 
 public class MissingBackPressureExceptionExample {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         Flowable.interval(1L, TimeUnit.MILLISECONDS)
                 .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .observeOn(Schedulers.computation())
@@ -23,6 +23,7 @@ public class MissingBackPressureExceptionExample {
                         () -> Logger.log(LogType.ON_COMPLETE)
                 );
 
-        Thread.sleep(2000L);
+        TimeUtil.sleep(2000);
+
     }
 }

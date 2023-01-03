@@ -2,6 +2,7 @@ package practice.chapter05;
 
 import practice.utils.LogType;
 import practice.utils.Logger;
+import practice.utils.TimeUtil;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
@@ -22,11 +23,7 @@ public class ServiceCenter {
         return items * 20000;
     }
 
-    private void delay(){
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+    private void delay() {
+        TimeUtil.sleep(3000);
     }
 }

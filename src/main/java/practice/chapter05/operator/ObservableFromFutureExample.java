@@ -3,6 +3,7 @@ package practice.chapter05.operator;
 import practice.chapter05.ServiceCenter;
 import practice.utils.LogType;
 import practice.utils.Logger;
+import practice.utils.TimeUtil;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -47,9 +48,7 @@ public class ObservableFromFutureExample {
             int itemRepairCost = future.get();
             Logger.log(LogType.PRINT, "# (1) 제품 수리비 계산 완료");
             Logger.log(LogType.PRINT, "# 제품 수리비는 " + itemRepairCost + "원 입니다.");
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
         long end = System.currentTimeMillis();
@@ -58,20 +57,12 @@ public class ObservableFromFutureExample {
     }
 
     private static void requestStopFactory() {
-        try {
-            Thread.sleep(1000);
-            Logger.log(LogType.PRINT, "# (2) 가동 중단 신청이 완료되었습니다.");
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        TimeUtil.sleep(1000);
+        Logger.log(LogType.PRINT, "# (2) 가동 중단 신청이 완료되었습니다.");
     }
 
     private static void requestInsurance() {
-        try {
-            Thread.sleep(1000);
-            Logger.log(LogType.PRINT, "# (3) 보험 접수가 완료되었습니다.");
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        TimeUtil.sleep(1000);
+        Logger.log(LogType.PRINT, "# (3) 보험 접수가 완료되었습니다.");
     }
 }

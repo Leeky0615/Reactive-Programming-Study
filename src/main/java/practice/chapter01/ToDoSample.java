@@ -2,13 +2,14 @@ package practice.chapter01;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import practice.utils.TimeUtil;
 
 /**
  * 리액티브 프로그래밍의 기본적인 규칙은
  * 데이터를 발행, 가공, 구독해서 처리한다.
  */
 public class ToDoSample {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         Observable.just(100, 200, 300, 400, 500) // 데이터 발행
                 // 각각의 데이터가 발행될때 doOnNext()가 실행된다
                 .doOnNext(data -> System.out.println(getThreadName() + " : " + "#doOnNext() : " + data ))
@@ -22,7 +23,7 @@ public class ToDoSample {
                 .subscribe(value -> System.out.println(getThreadName() + " : result : " + value));
 
 
-        Thread.sleep(500);
+        TimeUtil.sleep(500);
     }
 
     private static String getThreadName() {

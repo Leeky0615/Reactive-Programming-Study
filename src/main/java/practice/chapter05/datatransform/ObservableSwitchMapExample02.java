@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ObservableSwitchMapExample02 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         TimeUtil.start();
         Searcher searcher = new Searcher();
         // 사용자가 입력하는 단어라고 가정
@@ -35,6 +35,6 @@ public class ObservableSwitchMapExample02 {
                             TimeUtil.takeTime();
                         }
                 );
-        Thread.sleep(6000L);
+        TimeUtil.sleep(6000L);
     }
 }

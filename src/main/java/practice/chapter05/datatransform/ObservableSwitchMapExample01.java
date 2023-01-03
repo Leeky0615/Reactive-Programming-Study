@@ -8,7 +8,7 @@ import practice.utils.TimeUtil;
 import java.util.concurrent.TimeUnit;
 
 public class ObservableSwitchMapExample01 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         TimeUtil.start();
         Observable.interval(100L, TimeUnit.MILLISECONDS)
                 .take(4)
@@ -28,6 +28,6 @@ public class ObservableSwitchMapExample01 {
                             TimeUtil.takeTime();
                         }
                 );
-        Thread.sleep(5000L);
+        TimeUtil.sleep(5000L);
     }
 }

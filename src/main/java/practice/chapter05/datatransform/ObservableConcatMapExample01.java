@@ -8,7 +8,7 @@ import practice.utils.TimeUtil;
 import java.util.concurrent.TimeUnit;
 
 public class ObservableConcatMapExample01 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         TimeUtil.start();
         Observable.interval(100L, TimeUnit.MILLISECONDS)
                 .take(4)
@@ -27,7 +27,7 @@ public class ObservableConcatMapExample01 {
                             TimeUtil.takeTime();
                         }
                 );
-        Thread.sleep(5000L);
+        TimeUtil.sleep(5000);
 
         TimeUtil.start();
         Observable.interval(100L, TimeUnit.MILLISECONDS)
@@ -47,7 +47,7 @@ public class ObservableConcatMapExample01 {
                             TimeUtil.takeTime();
                         }
                 );
-        Thread.sleep(5000L);
+        TimeUtil.sleep(5000);
 
     }
 }

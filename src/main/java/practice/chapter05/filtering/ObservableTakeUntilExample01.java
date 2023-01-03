@@ -15,7 +15,7 @@ public class ObservableTakeUntilExample01 {
                 .subscribe(car -> System.out.println(car.getCarName()));
 
         try {
-            Thread.sleep(300L);
+            TimeUtil.sleep(300L);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

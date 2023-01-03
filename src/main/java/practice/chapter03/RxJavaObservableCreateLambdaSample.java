@@ -4,9 +4,10 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import practice.utils.LogType;
 import practice.utils.Logger;
+import practice.utils.TimeUtil;
 
 public class RxJavaObservableCreateLambdaSample {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         // 데이터를 통지하는 부분
         Observable<String> observable =
                 Observable.create(emitter -> {
@@ -28,6 +29,6 @@ public class RxJavaObservableCreateLambdaSample {
                         error -> Logger.log(LogType.ON_ERROR, error),
                         () -> Logger.log(LogType.ON_COMPLETE));
 
-        Thread.sleep(500L);
+        TimeUtil.sleep(500);
     }
 }

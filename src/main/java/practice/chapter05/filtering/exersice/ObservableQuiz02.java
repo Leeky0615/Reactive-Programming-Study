@@ -10,11 +10,11 @@ import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 public class ObservableQuiz02 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Observable.interval(1000L, TimeUnit.MILLISECONDS)
                 .takeWhile(data -> data != 10)
                 .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
-        Thread.sleep(10000L);
+        TimeUtil.sleep(10000L);
     }
 }

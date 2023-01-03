@@ -7,7 +7,7 @@ import practice.utils.Logger;
 import java.util.concurrent.TimeUnit;
 
 public class ObservableQuiz04 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Observable.range(1,15)
                 .skipLast(3)
                 .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
