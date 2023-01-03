@@ -5,6 +5,7 @@ import practice.common.Car;
 import practice.common.SampleData;
 import practice.utils.LogType;
 import practice.utils.Logger;
+import practice.utils.TimeUtil;
 
 import java.util.concurrent.TimeUnit;
 
